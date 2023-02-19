@@ -1,6 +1,6 @@
 # Usefull commands
 
-Create new angular project
+## Create new angular project
 
 ```
 ng new web --skip-git --skip-install --routing false --style scss --inline-style true --directory .
@@ -11,4 +11,10 @@ npm remove karma-jasmine-html-reporter
 npm install cypress --save-dev
 ng add @angular/pwa@latest
 
+```
+
+## You can see what browsers were selected by your queries by running:
+
+```
+npx browserslist
 ```

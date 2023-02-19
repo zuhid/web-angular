@@ -40,6 +40,6 @@ module.exports = function (config) {
         base: "ChromeHeadless",
         flags: ["--no-sandbox"],
       },
-    }
+    },
   });
 };

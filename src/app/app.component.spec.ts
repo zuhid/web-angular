@@ -2,15 +2,13 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 
 describe('AppComponent', () => {
-  let fixture : ComponentFixture<AppComponent>;
-  let component : AppComponent;
-  let nativeElement : HTMLElement;
+  let fixture: ComponentFixture<AppComponent>;
+  let component: AppComponent;
+  let nativeElement: HTMLElement;
 
-  beforeEach(async () => { 
+  beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [
-        AppComponent
-      ],
+      declarations: [AppComponent],
     }).compileComponents();
   });
   beforeEach(() => {
@@ -24,6 +22,8 @@ describe('AppComponent', () => {
   });
 
   it('should render title', () => {
-    expect(nativeElement.querySelector('h1')?.textContent).toContain('hello world');
+    expect(nativeElement.querySelector('h1')?.textContent).toContain(
+      'hello world'
+    );
   });
 });

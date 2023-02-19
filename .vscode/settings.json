@@ -22,16 +22,17 @@
   },
   "[json]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
   "[typescript]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.detectIndentation": false,
   "editor.formatOnSave": true,
   "editor.formatOnType": true,
   "editor.insertSpaces": true,
   "editor.tabSize": 2,
-  "files.insertFinalNewline": true,
   "editor.codeActionsOnSave": {
     "source.fixAll": true,
     "source.organizeImports": true,
     "source.sortMembers": true
-  }
+  },
+  "files.insertFinalNewline": true,
+  "prettier.printWidth": 200,
+  "prettier.arrowParens": "avoid"
 }
