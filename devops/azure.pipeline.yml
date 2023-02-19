@@ -1,0 +1,49 @@
+# Pre-requisite: node.js
+
+# trigger:
+#   - master
+
+pool: Default
+
+steps:
+  - task: NodeTool@0
+    inputs:
+      versionSpec: "18.x"
+    displayName: "Install Node.js"
+
+  - bash: npm install --no-fund
+    displayName: "Install Packages"
+
+  - bash: npm run build
+    displayName: "Build"
+
+  - bash: npm run test-ci
+    displayName: "Test"
+
+  - task: PublishTestResults@2
+    displayName: "Publish Test Results"
+    inputs:
+      testResultsFormat: "JUnit"
+      testResultsFiles: "tmp/junit/TESTS-*.xml"
+
+  - task: PublishCodeCoverageResults@1
+    displayName: "Publish Code Coverage Results"
+    inputs:
+      codeCoverageTool: "Cobertura"
+      summaryFileLocation: "$(Build.SourcesDirectory)/tmp/cobertura/cobertura-coverage.xml"
+
+  - task: ArchiveFiles@2
+    displayName: "Archive files"
+    inputs:
+      rootFolderOrFile: "$(Build.SourcesDirectory)/dist/web"
+      includeRootFolder: false
+      archiveType: zip
+      archiveFile: $(Build.ArtifactStagingDirectory)/web.zip
+      replaceExistingArchive: true
+
+  - task: PublishBuildArtifacts@1
+    displayName: "Publish Artifact"
+    inputs:
+      PathtoPublish: "$(Build.ArtifactStagingDirectory)/web.zip"
+      ArtifactName: "drop"
+      publishLocation: "Container"

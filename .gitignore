@@ -1,0 +1,7 @@
+.angular
+.git
+.vs
+dist
+node_modules
+tmp
+cypress/videos
